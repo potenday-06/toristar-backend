@@ -8,5 +8,5 @@ import lombok.Getter;
 public enum Provider {
 
     KAKAO,
-    NAVER;
+    NAVER
 }
