@@ -2,6 +2,9 @@ spring:
   application:
     name:
       toristar-backend
+  profiles:
+    include:
+      - oauth
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/toristar
