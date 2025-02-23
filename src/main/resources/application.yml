@@ -2,4 +2,8 @@ spring:
   application:
     name:
       toristar-backend
-
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/toristar
+    username: sa
+    password:
