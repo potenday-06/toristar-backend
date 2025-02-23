@@ -7,3 +7,11 @@ spring:
     url: jdbc:h2:tcp://localhost/~/toristar
     username: sa
     password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
