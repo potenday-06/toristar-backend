@@ -1,4 +1,4 @@
-package com.workthis.toristar.auth.domain;
+package com.workthis.toristar.member.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,18 +9,18 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @AllArgsConstructor
-public class SocialAccount {
+public class Member {
 
     private final Long id;
-    private final Long memberId;
+    private final String nickname;
     private final Provider provider;
     private final String providerId;
 
     private final LocalDateTime createdAt;
     private LocalDateTime lastLoginAt;
 
-    public static SocialAccount createSocialAccount(Long memberId, Provider provider, String providerId) {
-        return new SocialAccount(null, memberId, provider, providerId, LocalDateTime.now(), null);
+    public static Member createMember(Provider provider, String providerId) {
+        return new Member(null, null, provider, providerId, LocalDateTime.now(), null);
     }
 
     public void login() {

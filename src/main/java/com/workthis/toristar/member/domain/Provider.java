@@ -1,4 +1,4 @@
-package com.workthis.toristar.auth.domain;
+package com.workthis.toristar.member.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
