@@ -32,8 +32,8 @@ oauth:
   naver:
     client-id: uwVVXENpY4f1Oo7ZBIez
     client-secret: om_FdkKuWR
-    redirect-uri: "http://localhost:3000/auth/callback/naver"
+    redirect-uri: "https://toristar.site/auth/callback/naver"
   kakao:
     client-id: ef261c51ab37b450c0686433674d30f1
     client-secret: dngJPLHZ7WjNC4xz5LIOCeDKDZkn5SWQ
-    redirect-uri: "http://localhost:3000/auth/callback/kakao"
+    redirect-uri: "https://toristar.site/auth/callback/kakao"
