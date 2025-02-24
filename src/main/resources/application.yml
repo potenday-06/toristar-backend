@@ -37,6 +37,7 @@ logging:
   level:
     root: info
     sql: info
+    org.hibernate.orm.jdbc.bind: TRACE
 ---
 spring:
   config:
