@@ -7,6 +7,13 @@ spring:
       - oauth
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
+
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/toristar
@@ -30,3 +37,24 @@ logging:
   level:
     root: info
     sql: info
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://toristar_db:3306/toristar?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: toristar
+    password: toristar1234!
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect

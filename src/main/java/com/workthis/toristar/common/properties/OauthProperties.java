@@ -20,8 +20,6 @@ public class OauthProperties {
         private String clientId;
         private String clientSecret;
         private String redirectUri;
-        private String tokenUri;
-        private String userInfoUri;
     }
 
     public String getKakaoClientId() {
@@ -36,14 +34,6 @@ public class OauthProperties {
         return kakao.getRedirectUri();
     }
 
-    public String getKakaoTokenUri() {
-        return kakao.getTokenUri();
-    }
-
-    public String getKakaoUserInfoUri() {
-        return kakao.getUserInfoUri();
-    }
-
     public String getNaverClientId() {
         return naver.getClientId();
     }
@@ -54,14 +44,6 @@ public class OauthProperties {
 
     public String getNaverRedirectUri() {
         return naver.getRedirectUri();
-    }
-
-    public String getNaverTokenUri() {
-        return naver.getTokenUri();
-    }
-
-    public String getNaverUserInfoUri() {
-        return naver.getUserInfoUri();
     }
 
 }
