@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@EnableFeignClients
+@EnableFeignClients(basePackages = "com.workthis.toristar.infrastructure")
 public class FeignCommonConfig {
     @Bean
     public Decoder feignDecoder() {

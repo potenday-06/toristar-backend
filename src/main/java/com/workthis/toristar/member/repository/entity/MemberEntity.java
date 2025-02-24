@@ -1,5 +1,6 @@
 package com.workthis.toristar.member.repository.entity;
 
+import com.workthis.toristar.member.domain.Profile;
 import com.workthis.toristar.member.domain.Provider;
 import com.workthis.toristar.member.domain.Member;
 import jakarta.persistence.*;
@@ -20,6 +21,7 @@ public class MemberEntity {
     private Long id;
 
     private String nickname;
+    private Integer age;
 
     @Enumerated(EnumType.STRING)
     private Provider provider;
@@ -33,6 +35,7 @@ public class MemberEntity {
     public MemberEntity(Member member) {
         this.id = member.getId();
         this.nickname = member.getNickname();
+        this.age = member.getAge();
         this.provider = member.getProvider();
         this.providerId = member.getProviderId();
         this.createdAt = member.getCreatedAt();
@@ -42,7 +45,7 @@ public class MemberEntity {
     public Member toMember() {
         return Member.builder()
                 .id(id)
-                .nickname(nickname)
+                .profile(new Profile(nickname, age))
                 .provider(provider)
                 .providerId(providerId)
                 .createdAt(createdAt)

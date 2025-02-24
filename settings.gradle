@@ -1,1 +1,3 @@
 rootProject.name = 'toristar-backend'
+include 'toristar-domain'
+

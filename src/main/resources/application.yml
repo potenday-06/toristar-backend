@@ -5,6 +5,8 @@ spring:
   profiles:
     include:
       - oauth
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:tcp://localhost/~/toristar
@@ -18,3 +20,13 @@ spring:
       hibernate:
         format_sql: true
         dialect: org.hibernate.dialect.H2Dialect
+        show_sql: true
+springdoc:
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json
+  swagger-ui:
+    tags-sorter: alpha
+logging:
+  level:
+    root: info
+    sql: info

@@ -17,6 +17,3 @@ oauth:
     redirect-uri: "http://localhost:3000/auth/callback/kakao"
     token-uri: https://kauth.kakao.com/oauth/token
     user-info-uri: https://kapi.kakao.com/v2/user/me
-  google:
-    client-id: 341717776137-660n4kejo2foa1kjb02bc3954db49n2f.apps.googleusercontent.com
-    client-secret: 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
