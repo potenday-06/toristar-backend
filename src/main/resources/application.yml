@@ -45,7 +45,7 @@ spring:
       on-profile: prod
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://toristar_db:3306/toristar?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://toristar-db:3306/toristar?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
     username: toristar
     password: toristar1234!
     hikari:
@@ -55,7 +55,7 @@ spring:
       connection-timeout: 20000
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
