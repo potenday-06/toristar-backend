@@ -63,6 +63,16 @@ public class SwaggerConfig {
                 .build();
     }
 
+    @Bean
+    public GroupedOpenApi members() {
+        return GroupedOpenApi
+                .builder()
+                .group("Members APIs")
+                .addOperationCustomizer(customize())
+                .pathsToMatch("/v1/members/**")
+                .build();
+    }
+
     private Info swaggerInfo() {
         License license = new License();
         license.setUrl("https://github.com/potenday-06/toristar-backend");

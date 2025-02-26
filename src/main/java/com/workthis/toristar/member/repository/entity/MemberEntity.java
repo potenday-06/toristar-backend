@@ -1,5 +1,6 @@
 package com.workthis.toristar.member.repository.entity;
 
+import com.workthis.toristar.member.domain.Gender;
 import com.workthis.toristar.member.domain.Profile;
 import com.workthis.toristar.member.domain.Provider;
 import com.workthis.toristar.member.domain.Member;
@@ -21,7 +22,11 @@ public class MemberEntity {
     private Long id;
 
     private String nickname;
+
     private Integer age;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     @Enumerated(EnumType.STRING)
     private Provider provider;
@@ -36,6 +41,7 @@ public class MemberEntity {
         this.id = member.getId();
         this.nickname = member.getNickname();
         this.age = member.getAge();
+        this.gender = member.getGender();
         this.provider = member.getProvider();
         this.providerId = member.getProviderId();
         this.createdAt = member.getCreatedAt();
@@ -45,7 +51,7 @@ public class MemberEntity {
     public Member toMember() {
         return Member.builder()
                 .id(id)
-                .profile(new Profile(nickname, age))
+                .profile(new Profile(nickname, age, gender))
                 .provider(provider)
                 .providerId(providerId)
                 .createdAt(createdAt)
