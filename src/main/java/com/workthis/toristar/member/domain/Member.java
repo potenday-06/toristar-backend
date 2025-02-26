@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class Member {
 
     private final Long id;
-    private final Profile profile;
+    private Profile profile;
     private final Provider provider;
     private final String providerId;
 
@@ -31,7 +31,15 @@ public class Member {
         return profile.getAge();
     }
 
+    public Gender getGender() {
+        return profile.getGender();
+    }
+
     public void login() {
         this.lastLoginAt = LocalDateTime.now();
+    }
+
+    public void setProfile(String nickname, int age, Gender gender) {
+        this.profile = new Profile(nickname, age, gender);
     }
 }

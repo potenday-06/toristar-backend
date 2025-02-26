@@ -8,16 +8,19 @@ public class Profile {
 
     private final String nickname;
     private final Integer age;
+    private final Gender gender;
 
     public Profile() {
         this.nickname = "";
         this.age = 0;
+        this.gender = Gender.NONE;
     }
 
-    public Profile(String nickname, int age) {
+    public Profile(String nickname, int age, Gender gender) {
         validateNickname(nickname);
         this.nickname = nickname;
         this.age = age;
+        this.gender = gender;
     }
 
     private void validateNickname(String nickname) {
