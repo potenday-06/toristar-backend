@@ -1,6 +1,6 @@
 package com.workthis.toristar.star.application.service;
 
-import com.workthis.toristar.common.MemberUtils;
+import com.workthis.toristar.common.utils.MemberUtils;
 import com.workthis.toristar.common.annotation.UseCase;
 import com.workthis.toristar.member.domain.Member;
 import com.workthis.toristar.star.adaptor.StarAdaptor;

@@ -1,5 +1,6 @@
 package com.workthis.toristar.star.application.dto.response;
 
+import com.workthis.toristar.common.utils.DateConverter;
 import com.workthis.toristar.star.domain.Star;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
@@ -22,7 +23,7 @@ public record ReadStarListResponse(
             return ReadStarList.builder()
                     .starId(star.getId())
                     .name(index + "번째 별")
-                    .createdAt("")
+                    .createdAt(DateConverter.convertToRelativeDate(star.getCreatedAt()))
                     .build();
         }
     }
