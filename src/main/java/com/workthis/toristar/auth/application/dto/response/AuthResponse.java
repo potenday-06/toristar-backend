@@ -1,4 +1,4 @@
-package com.workthis.toristar.auth.application.dto;
+package com.workthis.toristar.auth.application.dto.response;
 
 import com.workthis.toristar.member.domain.Provider;
 import io.swagger.v3.oas.annotations.media.Schema;
