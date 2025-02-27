@@ -1,6 +1,6 @@
 package com.workthis.toristar.auth.application.service;
 
-import com.workthis.toristar.auth.application.dto.AuthResponse;
+import com.workthis.toristar.auth.application.dto.response.AuthResponse;
 import com.workthis.toristar.auth.application.service.helper.OauthHelper;
 import com.workthis.toristar.auth.application.service.helper.TokenGenerateHelper;
 import com.workthis.toristar.common.annotation.UseCase;

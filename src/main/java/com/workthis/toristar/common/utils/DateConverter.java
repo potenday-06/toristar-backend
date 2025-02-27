@@ -1,7 +1,10 @@
 package com.workthis.toristar.common.utils;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class DateConverter {
 
@@ -28,5 +31,24 @@ public class DateConverter {
         } else {
             return date.toString(); // YYYY-MM-DD 형식으로 반환
         }
+    }
+
+    public static String formatDateWithDay(LocalDate date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd", Locale.KOREA);
+        String formattedDate = date.format(formatter);
+        String dayOfWeek = getKoreanDayOfWeek(date.getDayOfWeek());
+        return formattedDate + "(" + dayOfWeek + ")";
+    }
+
+    private static String getKoreanDayOfWeek(DayOfWeek dayOfWeek) {
+        return switch (dayOfWeek) {
+            case MONDAY -> "월";
+            case TUESDAY -> "화";
+            case WEDNESDAY -> "수";
+            case THURSDAY -> "목";
+            case FRIDAY -> "금";
+            case SATURDAY -> "토";
+            case SUNDAY -> "일";
+        };
     }
 }

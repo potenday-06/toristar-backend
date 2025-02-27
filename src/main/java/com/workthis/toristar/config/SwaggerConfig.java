@@ -74,12 +74,22 @@ public class SwaggerConfig {
     }
 
     @Bean
-    public GroupedOpenApi universes() {
+    public GroupedOpenApi stars() {
         return GroupedOpenApi
                 .builder()
-                .group("Universes APIs")
+                .group("Stars APIs")
                 .addOperationCustomizer(customize())
-                .pathsToMatch("/v1/universes/**")
+                .pathsToMatch("/v1/stars/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi conversations() {
+        return GroupedOpenApi
+                .builder()
+                .group("Conversations APIs")
+                .addOperationCustomizer(customize())
+                .pathsToMatch("/v1/conversations/**")
                 .build();
     }
 

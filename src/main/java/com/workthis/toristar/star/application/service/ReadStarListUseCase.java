@@ -20,8 +20,8 @@ public class ReadStarListUseCase {
 
     public ReadStarListResponse execute(int page) {
         Member me = memberUtils.getCurrentMember();
-        Long totalCount = starAdaptor.findStarCountByMemberId(me.getId());
-        List<Star> content = starAdaptor.findStarsByMemberIdAndPage(me.getId(), page);
+        Long totalCount = starAdaptor.queryStarCountByMemberId(me.getId());
+        List<Star> content = starAdaptor.queryStarsByMemberIdAndPage(me.getId(), page);
 
         List<ReadStarListResponse.ReadStarList> readStars = IntStream.range(0, content.size())
                 .mapToObj(i -> ReadStarListResponse.ReadStarList.of(content.get(i), (int) (totalCount - ((page  - 1) * 3) - i)))
