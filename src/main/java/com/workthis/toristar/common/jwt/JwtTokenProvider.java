@@ -7,7 +7,6 @@ import com.workthis.toristar.common.exception.InvalidTokenException;
 import com.workthis.toristar.common.exception.RefreshTokenExpiredException;
 import com.workthis.toristar.common.properties.JwtProperties;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -30,8 +29,8 @@ public class JwtTokenProvider {
     private Jws<Claims> getJws(String token) {
         try {
             return Jwts.parserBuilder().setSigningKey(getSecretKey()).build().parseClaimsJws(token);
-        } catch (ExpiredJwtException e) {
-            throw ExpiredTokenException.EXCEPTION;
+//        } catch (ExpiredJwtException e) {
+//            throw ExpiredTokenException.EXCEPTION;
         } catch (Exception e) {
             throw InvalidTokenException.EXCEPTION;
         }
@@ -48,7 +47,7 @@ public class JwtTokenProvider {
                 .setIssuedAt(issuedAt)
                 .setSubject(id.toString())
                 .claim(TOKEN_TYPE, ACCESS_TOKEN)
-                .setExpiration(accessTokenExpiresIn)
+//                .setExpiration(accessTokenExpiresIn)
                 .signWith(encodedKey)
                 .compact();
     }

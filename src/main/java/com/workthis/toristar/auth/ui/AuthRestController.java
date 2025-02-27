@@ -1,6 +1,6 @@
 package com.workthis.toristar.auth.ui;
 
-import com.workthis.toristar.auth.application.dto.AuthResponse;
+import com.workthis.toristar.auth.application.dto.response.AuthResponse;
 import com.workthis.toristar.auth.application.service.RegisterOrLoginUseCase;
 import com.workthis.toristar.member.domain.Provider;
 import io.swagger.v3.oas.annotations.Operation;

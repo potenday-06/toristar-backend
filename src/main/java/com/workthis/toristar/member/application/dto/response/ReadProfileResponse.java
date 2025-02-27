@@ -4,11 +4,14 @@ import com.workthis.toristar.member.domain.Gender;
 import com.workthis.toristar.member.domain.Member;
 import lombok.Builder;
 
+import java.time.LocalDateTime;
+
 @Builder
 public record ReadProfileResponse(
         String nickname,
         int age,
-        Gender gender
+        Gender gender,
+        LocalDateTime createdAt
 ) {
 
     public static ReadProfileResponse of(Member member) {
@@ -16,6 +19,7 @@ public record ReadProfileResponse(
                 .nickname(member.getNickname())
                 .age(member.getAge())
                 .gender(member.getGender())
+                .createdAt(member.getCreatedAt())
                 .build();
     }
 }

@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @NoArgsConstructor
@@ -23,11 +21,8 @@ public class ConversationEntity {
 
     private Long starId;
 
+    @Column(columnDefinition = "TEXT")
     private String summary;
-
-    @ElementCollection
-    @CollectionTable(name = "conversation_chats", joinColumns = @JoinColumn(name = "conversation_id"))
-    private List<ChatEntity> chats;
 
     private LocalDateTime createdAt;
 
@@ -35,7 +30,6 @@ public class ConversationEntity {
         this.id = conversation.getId();
         this.starId = conversation.getStarId();
         this.summary = conversation.getSummary();
-        this.chats = conversation.getChats().stream().map(ChatEntity::new).collect(Collectors.toList());
         this.createdAt = conversation.getCreatedAt();
     }
 
@@ -44,7 +38,7 @@ public class ConversationEntity {
                 .id(id)
                 .starId(starId)
                 .summary(summary)
-                .chats(chats.stream().map(ChatEntity::toChat).collect(Collectors.toList()))
+                .createdAt(createdAt)
                 .build();
     }
 }
