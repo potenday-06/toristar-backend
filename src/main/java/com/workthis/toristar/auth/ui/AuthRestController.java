@@ -31,7 +31,7 @@ public class AuthRestController {
         ResponseCookie accessTokenCookie = ResponseCookie.from("accessToken", authResponse.accessToken()) // 토큰 값 설정
                 .httpOnly(true)  // JavaScript에서 접근 불가능
                 .secure(true)    // HTTPS 환경에서만 전송
-                .sameSite("Strict") // CSRF 방어
+                .sameSite("None") // CSRF 방어
                 .path("/")       // 모든 경로에서 쿠키 적용
                 .build();
         response.addHeader("Set-Cookie", accessTokenCookie.toString());
