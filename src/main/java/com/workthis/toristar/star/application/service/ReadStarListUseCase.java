@@ -21,18 +21,16 @@ public class ReadStarListUseCase {
     public ReadStarListResponse execute(int page) {
         Member me = memberUtils.getCurrentMember();
         Long totalCount = starAdaptor.findStarCountByMemberId(me.getId());
-        List<Star> content = starAdaptor.findStarsByMemberIdAndPage(me.getId(), page).stream()
-                .limit(3)
-                .toList();
+        List<Star> content = starAdaptor.findStarsByMemberIdAndPage(me.getId(), page);
 
         List<ReadStarListResponse.ReadStarList> readStars = IntStream.range(0, content.size())
-                .mapToObj(i -> ReadStarListResponse.ReadStarList.of(content.get(i), (int) (totalCount - page * i)))
+                .mapToObj(i -> ReadStarListResponse.ReadStarList.of(content.get(i), (int) (totalCount - ((page  - 1) * 3) - i)))
                 .toList();
         return new ReadStarListResponse(
                 totalCount,
                 page == 1,
-                page * 3L >= totalCount,
-                readStars
+                content.size() <= 3,
+                readStars.stream().limit(3).toList()
         );
     }
 }
