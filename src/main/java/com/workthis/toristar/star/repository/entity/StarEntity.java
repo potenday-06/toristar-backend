@@ -1,6 +1,5 @@
 package com.workthis.toristar.star.repository.entity;
 
-import com.workthis.toristar.conversation.repository.entity.ConversationEntity;
 import com.workthis.toristar.star.domain.Star;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
