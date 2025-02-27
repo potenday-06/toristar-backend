@@ -29,4 +29,6 @@ public class StarRestController {
     ) {
         return readStarListUseCase.execute(page);
     }
+
+
 }

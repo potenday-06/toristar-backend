@@ -1,4 +1,4 @@
-package com.workthis.toristar.common;
+package com.workthis.toristar.common.utils;
 
 import com.workthis.toristar.config.security.SecurityUtils;
 import com.workthis.toristar.member.application.adaptor.MemberAdaptor;
