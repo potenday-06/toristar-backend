@@ -20,6 +20,7 @@ public class ChatEntity {
 
     private Long conversationId;
 
+    @Enumerated(EnumType.STRING)
     private ChatType type;
 
     @Column(columnDefinition = "TEXT")

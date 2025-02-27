@@ -33,6 +33,7 @@ public class StarEntity {
         return Star.builder()
                 .id(id)
                 .memberId(memberId)
+                .createdAt(createdAt)
                 .build();
     }
 }

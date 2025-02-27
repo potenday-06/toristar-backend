@@ -38,6 +38,7 @@ public class ConversationEntity {
                 .id(id)
                 .starId(starId)
                 .summary(summary)
+                .createdAt(createdAt)
                 .build();
     }
 }

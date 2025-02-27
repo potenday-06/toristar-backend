@@ -23,8 +23,4 @@ public class Conversation {
         this.summary = summary;
         this.createdAt = LocalDateTime.now();
     }
-
-    public static Conversation createConversation(Long starId, String summary) {
-        return new Conversation(starId, summary);
-    }
 }
