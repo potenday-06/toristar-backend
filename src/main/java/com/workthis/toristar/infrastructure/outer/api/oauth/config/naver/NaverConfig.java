@@ -6,13 +6,13 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 
-@Import(NaverInfoErrorDecoder.class)
-public class NaverInfoConfig {
+@Import(NaverErrorDecoder.class)
+public class NaverConfig {
 
     @Bean
     @ConditionalOnMissingBean(value = ErrorDecoder.class)
-    public NaverInfoErrorDecoder commonFeignErrorDecoder() {
-        return new NaverInfoErrorDecoder();
+    public NaverErrorDecoder commonFeignErrorDecoder() {
+        return new NaverErrorDecoder();
     }
 
     @Bean

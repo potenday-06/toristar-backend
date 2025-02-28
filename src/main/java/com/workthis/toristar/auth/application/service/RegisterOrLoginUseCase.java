@@ -31,8 +31,7 @@ public class RegisterOrLoginUseCase {
                         .getAccessToken();
                 yield oauthHelper.getKakaoUserInfo(kakaoAccessToken);
             }
-            case NAVER ->
-                // naver의 경우 code가 아니라 accessToken이 바로 넘어옴
+            case NAVER -> //                String naverAccessToken = oauthHelper.getNaverOauthToken(authorizationCode).getAccessToken();
                     oauthHelper.getNaverUserInfo(authorizationCode);
         };
         // 유저 정보중 고유 id 으로 회원 존재하는지 조회
