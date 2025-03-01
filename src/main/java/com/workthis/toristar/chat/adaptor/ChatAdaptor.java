@@ -24,4 +24,8 @@ public class ChatAdaptor {
     public void saveAll(List<Chat> chats) {
         chatRepository.saveAll(chats.stream().map(ChatEntity::new).toList());
     }
+
+    public void deleteAllByConversationIds(List<Long> conversationIds) {
+        chatRepository.deleteAllByConversationIdIn(conversationIds);
+    }
 }

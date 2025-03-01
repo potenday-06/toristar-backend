@@ -1,6 +1,7 @@
 package com.workthis.toristar.star.adaptor;
 
 import com.workthis.toristar.common.annotation.Adaptor;
+import com.workthis.toristar.conversation.adaptor.ConversationAdaptor;
 import com.workthis.toristar.star.domain.Star;
 import com.workthis.toristar.star.exception.NotFoundStarException;
 import com.workthis.toristar.star.repository.entity.StarEntity;
@@ -16,10 +17,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class StarAdaptor {
 
+    private final ConversationAdaptor conversationAdaptor;
     private final JpaStarRepository starRepository;
 
     public Optional<StarEntity> queryTodayStarByMemberId(Long memberId) {
         return starRepository.findStarEntityByMemberIdAndCreatedAt(memberId, LocalDate.now());
+    }
+
+    public List<Long> queryIdsByMemberId(Long memberId) {
+        return starRepository.findAllByMemberId(memberId).stream()
+                .map(StarEntity::getId)
+                .toList();
     }
 
     public Star queryStarByStarIdAndMemberId(Long starId, Long memberId) {
@@ -42,5 +50,12 @@ public class StarAdaptor {
 
     public Long saveStar(Star star) {
         return starRepository.save(new StarEntity(star)).getId();
+    }
+
+    public void deleteByMemberId(Long memberId) {
+        List<Long> starIds = queryIdsByMemberId(memberId);
+        if (!starIds.isEmpty()) {
+            conversationAdaptor.deleteByStarIds(starIds);
+        }
     }
 }

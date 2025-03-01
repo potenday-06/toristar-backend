@@ -29,4 +29,8 @@ public class MemberAdaptor {
                 .orElseThrow(() -> NotFoundMemberException.EXCEPTION)
                 .toMember();
     }
+
+    public void deleteByProviderId(String providerId) {
+        memberRepository.deleteByProviderId(providerId);
+    }
 }

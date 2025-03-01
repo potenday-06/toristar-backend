@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties("oauth")
 public class OauthProperties {
 
-    private OAuthSecret kakao;
+    private OAuthKakaoSecret kakao;
     private OAuthSecret naver;
 
     @Getter
@@ -21,6 +21,20 @@ public class OauthProperties {
         private String clientSecret;
         private String redirectUri;
     }
+
+    @Getter
+    @Setter
+    public static class OAuthKakaoSecret {
+        private String adminKey;
+        private String appId;
+        private String clientId;
+        private String clientSecret;
+        private String redirectUri;
+    }
+
+    public String getKakaoAdminKey() { return kakao.getAdminKey(); }
+
+    public String getKakaoAppId() { return kakao.getAppId(); }
 
     public String getKakaoClientId() {
         return kakao.getClientId();

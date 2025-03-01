@@ -9,4 +9,6 @@ import java.util.Optional;
 public interface JpaMemberRepository extends JpaRepository<MemberEntity, Long> {
 
     Optional<MemberEntity> findMemberEntityByProviderAndProviderId(Provider provider, String providerId);
+
+    void deleteByProviderId(String providerId);
 }

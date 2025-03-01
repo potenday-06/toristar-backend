@@ -14,6 +14,8 @@ oauth:
     client-secret: om_FdkKuWR
     redirect-uri: "http://localhost:3000/auth/callback/naver"
   kakao:
+    admin-key: ee2930e4a1042bf608125dad00a79f34
+    app-id: 1204655
     client-id: ef261c51ab37b450c0686433674d30f1
     client-secret: dngJPLHZ7WjNC4xz5LIOCeDKDZkn5SWQ
     redirect-uri: "http://localhost:3000/auth/callback/kakao"
@@ -34,6 +36,8 @@ oauth:
     client-secret: om_FdkKuWR
     redirect-uri: "https://toristar.site/auth/callback/naver"
   kakao:
+    admin-key: ee2930e4a1042bf608125dad00a79f34
+    app-id: 1204655
     client-id: ef261c51ab37b450c0686433674d30f1
     client-secret: dngJPLHZ7WjNC4xz5LIOCeDKDZkn5SWQ
     redirect-uri: "https://toristar.site/auth/callback/kakao"

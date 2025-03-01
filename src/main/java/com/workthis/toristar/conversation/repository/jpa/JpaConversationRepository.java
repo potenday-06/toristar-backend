@@ -8,4 +8,6 @@ import java.util.List;
 public interface JpaConversationRepository extends JpaRepository<ConversationEntity, Long> {
 
     List<ConversationEntity> findConversationEntitiesByStarIdOrderByCreatedAtDesc(Long starId);
+    List<ConversationEntity> findAllByStarId(Long starId);
+    void deleteAllByStarIdIn(List<Long> starIds);
 }

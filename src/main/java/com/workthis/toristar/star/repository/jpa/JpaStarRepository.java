@@ -14,4 +14,5 @@ public interface JpaStarRepository extends JpaRepository<StarEntity, Long> {
     Optional<StarEntity> findStarEntityByIdAndMemberId(Long starId, Long memberId);
     long countAllByMemberId(Long memberId);
     List<StarEntity> findAllByMemberIdOrderByCreatedAtDesc(Long memberId, Pageable pageable);
+    List<StarEntity> findAllByMemberId(Long memberId);
 }

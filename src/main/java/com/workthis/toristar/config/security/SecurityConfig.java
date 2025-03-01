@@ -13,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.config.annotation.web.configurers.HttpBasicConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -54,9 +55,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(SwaggerPatterns).permitAll()
                         .requestMatchers(HttpMethod.GET, "/v1/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/v1/auth/provider/kakao/leave").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/v1/auth/provider/naver/leave").permitAll()
                         .anyRequest()
                         .authenticated()
                 )
+                .headers(headers ->
+                        headers.contentTypeOptions(HeadersConfigurer.ContentTypeOptionsConfig::disable)
+                )
+                .securityMatcher("/v1/auth/provider/naver/leave")
                 .addFilterBefore(jwtTokenFilter, BasicAuthenticationFilter.class)
                 .addFilterBefore(jwtExceptionFilter, JwtTokenFilter.class)
                 .addFilterBefore(accessDeniedFilter, AuthorizationFilter.class)

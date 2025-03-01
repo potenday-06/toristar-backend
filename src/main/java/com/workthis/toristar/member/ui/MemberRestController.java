@@ -33,4 +33,5 @@ public class MemberRestController {
     public ReadProfileResponse getProfile() {
         return readProfileUseCase.execute();
     }
+
 }
