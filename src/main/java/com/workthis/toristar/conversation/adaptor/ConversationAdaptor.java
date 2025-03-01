@@ -22,7 +22,7 @@ public class ConversationAdaptor {
     }
 
     public List<Conversation> queryConversationsByStarId(Long starId) {
-        return conversationRepository.findConversationEntitiesByStarIdOrderByCreatedAtAsc(starId)
+        return conversationRepository.findConversationEntitiesByStarIdOrderByCreatedAtDesc(starId)
                 .stream()
                 .map(ConversationEntity::toConversation)
                 .toList();

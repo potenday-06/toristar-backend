@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface JpaConversationRepository extends JpaRepository<ConversationEntity, Long> {
 
-    List<ConversationEntity> findConversationEntitiesByStarIdOrderByCreatedAtAsc(Long starId);
+    List<ConversationEntity> findConversationEntitiesByStarIdOrderByCreatedAtDesc(Long starId);
 }
