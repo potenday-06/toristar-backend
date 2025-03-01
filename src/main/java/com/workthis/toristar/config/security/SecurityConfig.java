@@ -60,10 +60,6 @@ public class SecurityConfig {
                         .anyRequest()
                         .authenticated()
                 )
-                .headers(headers ->
-                        headers.contentTypeOptions(HeadersConfigurer.ContentTypeOptionsConfig::disable)
-                )
-                .securityMatcher("/v1/auth/provider/naver/leave")
                 .addFilterBefore(jwtTokenFilter, BasicAuthenticationFilter.class)
                 .addFilterBefore(jwtExceptionFilter, JwtTokenFilter.class)
                 .addFilterBefore(accessDeniedFilter, AuthorizationFilter.class)
