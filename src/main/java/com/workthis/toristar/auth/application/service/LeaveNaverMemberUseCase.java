@@ -21,10 +21,6 @@ public class LeaveNaverMemberUseCase {
 
     @Transactional
     public void execute(String clientId, String encryptUniqueId, String timestamp, String signature) throws Exception {
-        System.out.println("clientId = " + clientId);
-        System.out.println("encryptUniqueId = " + encryptUniqueId);
-        System.out.println("timestamp = " + timestamp);
-        System.out.println("signature = " + signature);
         if (naverEncryptUtils.validateNaverHmac(clientId, encryptUniqueId, timestamp, signature)) {
             String decryptNaverProviderId = naverEncryptUtils.decryptNaverProviderId(encryptUniqueId);
             Member me = memberAdaptor.queryMemberByOauth(Provider.NAVER, decryptNaverProviderId)

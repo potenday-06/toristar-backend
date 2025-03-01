@@ -58,11 +58,4 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
         dialect: org.hibernate.dialect.MySQL8Dialect
-        show_sql: true
-logging:
-  level:
-    root: info
-    sql: info
-    org.hibernate.orm.jdbc.bind: TRACE
