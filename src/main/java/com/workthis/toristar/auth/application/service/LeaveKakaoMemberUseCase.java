@@ -20,6 +20,10 @@ public class LeaveKakaoMemberUseCase {
 
     @Transactional
     public void execute(String adminKey, String appId, String userId, String referrerType) {
+        System.out.println("adminKey = " + adminKey);
+        System.out.println("appId = " + appId);
+        System.out.println("userId = " + userId);
+        System.out.println("referrerType = " + referrerType);
         if (oauthProperties.getKakaoAdminKey().equals(adminKey) && oauthProperties.getKakaoAppId().equals(appId)) {
             Member me = memberAdaptor.queryMemberByOauth(Provider.KAKAO, userId)
                     .orElseThrow(NotFoundMemberException::new)

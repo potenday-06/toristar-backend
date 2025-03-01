@@ -59,3 +59,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+logging:
+  level:
+    root: info
+    sql: info
+    org.hibernate.orm.jdbc.bind: TRACE
