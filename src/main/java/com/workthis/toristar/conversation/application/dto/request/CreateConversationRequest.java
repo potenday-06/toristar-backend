@@ -9,11 +9,12 @@ import java.util.List;
 
 public record CreateConversationRequest(
         @Schema(description = "요약 내용") String summary,
+        @Schema(description = "키워드") List<String> keywords,
         @Schema(description = "대화 내용 전체") List<CreateChatRequest> chats
 ) {
 
     public Conversation toConversation(Long starId) {
-        return new Conversation(starId, summary);
+        return new Conversation(starId, summary, keywords);
     }
 
     public record CreateChatRequest(

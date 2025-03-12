@@ -15,13 +15,15 @@ public record ReadConversationListResponse(
     public record ReadConversationList(
             @Schema(description = "이야기 고유 식별자 ID") Long conversationId,
             @Schema(description = "생성한 시간 정보") Long createdAt,
-            @Schema(description = "요약 정보") String summary
+            @Schema(description = "요약 정보") String summary,
+            @Schema(description = "키워드") List<String> keywords
     ) {
         public static ReadConversationList of(Conversation conversation) {
             return ReadConversationList.builder()
                     .conversationId(conversation.getId())
                     .createdAt(Timestamp.valueOf(conversation.getCreatedAt()).getTime())
                     .summary(conversation.getSummary())
+                    .keywords(conversation.getKeywords())
                     .build();
         }
     }
