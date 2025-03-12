@@ -16,7 +16,7 @@ public class Conversation {
     private final Long id;
     private final Long starId;
     private final String summary;
-    private final List<ConversationKeyword> keywords;
+    private List<ConversationKeyword> keywords;
 
     private final LocalDateTime createdAt;
 
@@ -30,5 +30,9 @@ public class Conversation {
 
     public List<String> getKeywords() {
         return keywords.stream().map(ConversationKeyword::getName).toList();
+    }
+
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords.stream().map(ConversationKeyword::new).toList();
     }
 }
