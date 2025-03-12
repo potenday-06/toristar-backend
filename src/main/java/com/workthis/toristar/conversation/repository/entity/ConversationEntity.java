@@ -1,7 +1,6 @@
 package com.workthis.toristar.conversation.repository.entity;
 
 import com.workthis.toristar.conversation.domain.Conversation;
-import com.workthis.toristar.conversation.domain.ConversationKeyword;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
