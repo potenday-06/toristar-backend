@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ public class Conversation {
         this.id = null;
         this.starId = starId;
         this.summary = summary;
-        this.keywords = keywords.stream().map(ConversationKeyword::new).collect(Collectors.toList());
+        this.keywords = keywords == null ? new ArrayList<>() : keywords.stream().map(ConversationKeyword::new).collect(Collectors.toList());
         this.createdAt = LocalDateTime.now();
     }
 
